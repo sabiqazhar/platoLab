@@ -27,7 +27,7 @@ app.use(express.static("public"));
 
 app.get('/', (req, res)=>{
   Post.find({}, (err, posts)=>{
-    res.render('home', {
+    res.render('index', {
       titleHm: homeStartingContent,
       posts: posts
     });
