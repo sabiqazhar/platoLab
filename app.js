@@ -8,8 +8,7 @@ const aboutContent = "this is personal blog web using atlas mongoDB, nodejs and 
 
 const app = express();
 
-mongoose.connect("mongodb+srv://admin-sabiq:sabiq2001@cluster0.wwqbf.mongodb.net/blogDB", {useNewUrlParser: true});
-// mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true}); //connect to DB
+mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true}); //connect to DB
 
 const postSchema = {
   title: String,
