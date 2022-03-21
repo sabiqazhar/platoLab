@@ -2,13 +2,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose')
+const pass = require(__dirname+'/key.js');
 
 const homeStartingContent = "Hello i'm Sabiq, currently i has study about node js, mongosee and express to develop this project, enjoy this project, rate me if you like or dislike this project";
 const aboutContent = "this is personal blog web using atlas mongoDB, nodejs and express. please rate me...";
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true}); //connect to DB
+mongoose.connect(pass.getPass(), {useNewUrlParser: true}); //connect to DB
 
 const postSchema = {
   title: String,
@@ -75,9 +76,10 @@ app.get('/post/:postId', (req, res)=>{
 
 
 
-
-
-
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, ()=>{
+  console.log("server listening on port");
 });
