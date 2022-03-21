@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-app.get('/', (req, res)=>{
+app.get("/", (req, res)=>{
   Post.find({}, (err, posts)=>{
     res.render('index', {
       titleHm: homeStartingContent,
